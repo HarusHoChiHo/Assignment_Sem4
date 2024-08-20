@@ -2,20 +2,20 @@ services:
   jsb-server:
     container_name: jsb-server
     build:
-      context: .
-      dockerfile: ./JavaSB/Dockerfile
+      context: ./JavaSB
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://jsbdb:5432/testing
-      - SPRING_DATASOURCE_USERNAME=user
-      - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_FLYWAY_URL=jdbc:postgresql://jsbdb:5432/testing
-      - SPRING_FLYWAY_USER=user
-      - SPRING_FLYWAY_PASSWORD=password
-      - SPRING_FLYWAY_DRIVER-CLASS-NAME=org.postgresql.Driver
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://jsbdb:5432/testing
+#      - SPRING_DATASOURCE_USERNAME=user
+#      - SPRING_DATASOURCE_PASSWORD=password
+#      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+#      - SPRING_FLYWAY_URL=jdbc:postgresql://jsbdb:5432/testing
+#      - SPRING_FLYWAY_USER=user
+#      - SPRING_FLYWAY_PASSWORD=password
+#      - SPRING_FLYWAY_DRIVER-CLASS-NAME=org.postgresql.Driver
     depends_on:
       jsbdb:
         condition: service_healthy

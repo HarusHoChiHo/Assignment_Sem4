@@ -1,12 +1,27 @@
-FROM maven:3.8.4-openjdk-17 AS build
+# Use OpenJDK 17 as the base image
+FROM openjdk:17-jdk-slim
+
+# Set the working directory in the container
 WORKDIR /app
 
-COPY ./JavaSB/mvnw .
-COPY ./JavaSB/.mvn .mvn
-COPY ./JavaSB/pom.xml .
-COPY ./JavaSB/src ./src
-RUN ./mvnw clean package -DskipTests
+# Copy the Maven project file
+COPY pom.xml .
 
-FROM openjdk:17-jdk-slim
-COPY --from=build /app/target/*.jar app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Copy the source code
+COPY src ./src
+
+# Copy the Maven wrapper
+COPY .mvn .mvn
+COPY mvnw .
+
+# Make the Maven wrapper executable
+RUN chmod +x mvnw
+
+# Build the application
+RUN ./mvnw package -DskipTests
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Run the jar file
+ENTRYPOINT ["java", "-jar", "target/JavaSB-0.0.1-SNAPSHOT.jar"]
