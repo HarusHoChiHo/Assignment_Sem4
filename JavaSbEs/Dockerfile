@@ -2,6 +2,7 @@
 FROM amazoncorretto:17-alpine-jdk
 
 RUN apk add --no-cache curl
+RUN apk add --no-cache dos2unix
 
 # Set the working directory in the container
 WORKDIR /app
@@ -18,6 +19,9 @@ COPY mvnw .
 
 # Make the Maven wrapper executable
 RUN chmod +x mvnw
+
+#Convert the line ending to Linux EOL
+RUN dos2unix mvnw
 
 # Build the application
 RUN ./mvnw package -DskipTests

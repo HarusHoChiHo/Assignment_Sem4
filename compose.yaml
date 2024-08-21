@@ -11,12 +11,12 @@ services:
         condition: service_healthy
       jsb-cs:
         condition: service_healthy
-#    healthcheck:
-#      test: "curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1"
-#      interval: 30s
-#      timeout: 10s
-#      retries: 5
-#      start_period: 5s
+    healthcheck:
+      test: "curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
 
   jsb-product:
     container_name: jsb-product
@@ -24,18 +24,18 @@ services:
       context: ./JavaSbProduct
       dockerfile: Dockerfile
     ports:
-      - "8081:8081"
+      - "8090:8090"
     depends_on:
       jsb-es:
         condition: service_healthy
       jsb-cs:
         condition: service_healthy
-#    healthcheck:
-#      test: "curl --fail --silent localhost:8081/actuator/health | grep UP || exit 1"
-#      interval: 30s
-#      timeout: 10s
-#      retries: 5
-#      start_period: 5s
+    healthcheck:
+      test: "curl --fail --silent localhost:8090/actuator/health | grep UP || exit 1"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
 
   jsb-cs:
     container_name: jsb-cs
@@ -53,6 +53,8 @@ services:
     depends_on:
       jsbdb:
         condition: service_healthy
+    volumes:
+      - config:/app/config
 
   jsb-es:
     container_name: jsb-es
@@ -78,8 +80,9 @@ services:
       POSTGRES_DB: testing
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
+      PGPORT: 5444
     ports:
-      - "5432:5432"
+      - "5444:5444"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U user -d testing "]
       interval: 10s
@@ -91,5 +94,9 @@ services:
 
 volumes:
   postgres_data:
-
-  
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./JavaSbCs/config
