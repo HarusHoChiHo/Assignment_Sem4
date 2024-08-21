@@ -11,6 +11,31 @@ services:
         condition: service_healthy
       jsb-cs:
         condition: service_healthy
+#    healthcheck:
+#      test: "curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1"
+#      interval: 30s
+#      timeout: 10s
+#      retries: 5
+#      start_period: 5s
+
+  jsb-product:
+    container_name: jsb-product
+    build:
+      context: ./JavaSbProduct
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      jsb-es:
+        condition: service_healthy
+      jsb-cs:
+        condition: service_healthy
+#    healthcheck:
+#      test: "curl --fail --silent localhost:8081/actuator/health | grep UP || exit 1"
+#      interval: 30s
+#      timeout: 10s
+#      retries: 5
+#      start_period: 5s
 
   jsb-cs:
     container_name: jsb-cs
@@ -21,8 +46,8 @@ services:
       - "8989:8989"
     healthcheck:
       test: "curl --fail --silent localhost:8989/actuator/health | grep UP || exit 1"
-      interval: 30s
-      timeout: 10s
+      interval: 10s
+      timeout: 5s
       retries: 5
       start_period: 5s
     depends_on:
@@ -38,8 +63,8 @@ services:
       - "8761:8761"
     healthcheck:
       test: "curl --fail --silent localhost:8761/actuator/health | grep UP || exit 1"
-      interval: 30s
-      timeout: 10s
+      interval: 10s
+      timeout: 5s
       retries: 5
       start_period: 5s
     depends_on:
