@@ -17,6 +17,23 @@ services:
 #      - SPRING_FLYWAY_PASSWORD=password
 #      - SPRING_FLYWAY_DRIVER-CLASS-NAME=org.postgresql.Driver
     depends_on:
+      jsb-es:
+        condition: service_healthy
+
+  jsb-es:
+    container_name: jsb-es
+    build:
+      context: ./JavaSbEs
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    healthcheck:
+      test: "curl --fail --silent localhost:8761/actuator/health | grep UP || exit 1"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    depends_on:
       jsbdb:
         condition: service_healthy
 

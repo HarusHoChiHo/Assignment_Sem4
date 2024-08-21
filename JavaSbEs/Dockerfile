@@ -23,7 +23,7 @@ RUN chmod +x mvnw
 RUN ./mvnw package -DskipTests
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 8761
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "target/JavaSB-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "target/JavaSbEs-0.0.1-SNAPSHOT.jar"]
