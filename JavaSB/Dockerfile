@@ -27,7 +27,7 @@ RUN dos2unix mvnw
 RUN ./mvnw package -DskipTests
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 8090
 
 # Run the jar file
 ENTRYPOINT ["java", "-jar", "target/JavaSB-0.0.1-SNAPSHOT.jar"]

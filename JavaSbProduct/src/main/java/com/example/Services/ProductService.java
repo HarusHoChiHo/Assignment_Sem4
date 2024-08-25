@@ -1,7 +1,7 @@
-package Services;
+package com.example.Services;
 
-import Model.Product;
-import Repositories.ProductRepository;
+import com.example.Model.Product;
+import com.example.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

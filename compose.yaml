@@ -5,12 +5,12 @@ services:
       context: ./JavaSB
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8090:8090"
     depends_on:
       jsb-ag:
         condition: service_healthy
     healthcheck:
-      test: "curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8090/actuator/health | grep UP || exit 1"
       interval: 30s
       timeout: 10s
       retries: 5
@@ -22,12 +22,12 @@ services:
       context: ./JavaSbProduct
       dockerfile: Dockerfile
     ports:
-      - "8090:8090"
+      - "8091:8091"
     depends_on:
       jsb-ag:
         condition: service_healthy
     healthcheck:
-      test: "curl --fail --silent localhost:8090/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8091/actuator/health | grep UP || exit 1"
       interval: 30s
       timeout: 10s
       retries: 5

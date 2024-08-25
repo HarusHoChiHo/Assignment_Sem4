@@ -19,6 +19,6 @@ RUN dos2unix mvnw
 
 RUN ./mvnw package -DskipTests
 
-EXPOSE 8090
+EXPOSE 8091
 
 ENTRYPOINT ["java", "-jar", "target/JavaSbProduct-0.0.1-SNAPSHOT.jar"]
