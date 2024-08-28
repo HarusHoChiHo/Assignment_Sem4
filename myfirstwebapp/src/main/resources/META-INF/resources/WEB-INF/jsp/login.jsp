@@ -5,8 +5,21 @@
     <title>Login - Page</title>
 </head>
 <body>
-
-Welcome to the login page!
+<div class="container">
+    <h1>Login</h1>
+    <pre>${errorMessage}</pre>
+    <form action="login" method="post">
+        <label>
+            Name:
+            <input type="text" name="name"/>
+        </label>
+        <label>
+            Password:
+            <input type="password" name="password"/>
+        </label>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
 
 </body>
 </html>
