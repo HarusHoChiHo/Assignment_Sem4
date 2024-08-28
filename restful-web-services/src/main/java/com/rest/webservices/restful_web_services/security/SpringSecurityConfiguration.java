@@ -16,14 +16,14 @@ public class SpringSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorizeRequests ->
-                authorizeRequests.anyRequest()
-                                 .authenticated()
-        );
-
-        http.httpBasic(withDefaults());
-
-        http.csrf(AbstractHttpConfigurer::disable);
+//        http.authorizeHttpRequests(authorizeRequests ->
+//                authorizeRequests.anyRequest()
+//                                 .authenticated()
+//        );
+//
+//        http.httpBasic(withDefaults());
+//
+//        http.csrf(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
@@ -31,6 +31,6 @@ public class SpringSecurityConfiguration {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
-                           .requestMatchers("/swagger**", "/v3/api-docs/**", "/swagger-ui/**", "/h2-console/**", "/explorer/**", "/");
+                           .requestMatchers("/swagger**", "/v3/api-docs/**", "/swagger-ui/**", "/h2-console/**", "/explorer/**", "/", "/hello-world**/**", "/users/**");
     }
 }
