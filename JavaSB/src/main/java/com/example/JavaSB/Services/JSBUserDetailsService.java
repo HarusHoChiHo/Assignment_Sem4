@@ -1,6 +1,6 @@
-package com.example.Services;
+package com.example.JavaSB.Services;
 
-import com.example.Repositories.UserDetailsRepository;
+import com.example.JavaSB.Repositories.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,8 +9,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class JSBUserDetailsService implements UserDetailsService {
-    @Autowired
+
     UserDetailsRepository userDetailsRepository;
+
+
+    public JSBUserDetailsService(UserDetailsRepository userDetailsRepository) {
+        this.userDetailsRepository = userDetailsRepository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String userName){

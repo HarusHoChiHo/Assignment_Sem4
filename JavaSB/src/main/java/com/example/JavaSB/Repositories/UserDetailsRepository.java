@@ -1,6 +1,6 @@
-package com.example.Repositories;
+package com.example.JavaSB.Repositories;
 
-import com.example.Models.JSBUserDetails;
+import com.example.JavaSB.Models.JSBUserDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,10 +1,9 @@
-package com.example.Components;
+package com.example.JavaSB.Components;
 
-import com.example.Models.JSBUserDetails;
-import com.example.Services.JSBUserDetailsService;
+import com.example.JavaSB.Config.CustomConfiguration;
+import com.example.JavaSB.Services.JSBUserDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.Password;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +19,15 @@ import java.util.function.Function;
 @Component
 public class JwtTokenUtil {
 
-    @Autowired
-    private JSBUserDetailsService jsbUserDetailsService;
-
-    @Value("${jwt.secret}")
-    private String secret;
+    private final JSBUserDetailsService jsbUserDetailsService;
 
     private static Password key;
 
     private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
-    public JwtTokenUtil() {
-        key = Keys.password(secret.toCharArray());
+    public JwtTokenUtil(CustomConfiguration customConfiguration, JSBUserDetailsService jsbUserDetailsService) {
+        key = Keys.password(customConfiguration.getSecret().toCharArray());
+        this.jsbUserDetailsService = jsbUserDetailsService;
     }
 
     public String getUsernameFromToken(String token) {

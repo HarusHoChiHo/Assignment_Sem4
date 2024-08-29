@@ -1,4 +1,4 @@
-FROM amazoncorretto:17-alpine-jdk
+FROM amazoncorretto:22-alpine-jdk
 
 RUN apk add --no-cache curl
 RUN apk add --no-cache dos2unix

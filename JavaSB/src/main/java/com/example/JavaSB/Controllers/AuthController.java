@@ -1,8 +1,8 @@
-package com.example.Controllers;
+package com.example.JavaSB.Controllers;
 
-import com.example.Components.JwtTokenUtil;
-import com.example.Models.JwtRequest;
-import com.example.Models.JwtResponse;
+import com.example.JavaSB.Components.JwtTokenUtil;
+import com.example.JavaSB.Models.JwtRequest;
+import com.example.JavaSB.Models.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,22 +14,31 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping(path = "/auth")
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    @GetMapping("/")
+    public String hello(){
+        return "Hello";
+    }
 
-    @Autowired
+//    private AuthenticationManager authenticationManager;
+
     private JwtTokenUtil jwtTokenUtil;
 
-    @Autowired
     private UserDetailsService userDetailsService;
 
-    @PostMapping("/token")
+    public AuthController(JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService) {
+        //this.authenticationManager = authenticationManager;
+        this.jwtTokenUtil = jwtTokenUtil;
+        this.userDetailsService = userDetailsService;
+    }
+
+    @PostMapping("/auth/token")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
@@ -40,7 +49,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
-    @PostMapping("/validate")
+    @PostMapping("/auth/validate")
     public ResponseEntity<?> validateToken(@RequestBody String token){
 
         if(jwtTokenUtil.validateToken(token)){
@@ -52,7 +61,7 @@ public class AuthController {
 
     private void authenticate(String username, String password) throws Exception{
         try{
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+            //authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (DisabledException e){
             throw new Exception("USER_DISABLED", e);
         } catch (BadCredentialsException e){

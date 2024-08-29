@@ -1,5 +1,5 @@
 # Use OpenJDK 17 as the base image
-FROM amazoncorretto:17-alpine-jdk
+FROM eclipse-temurin:22-jdk-alpine
 
 RUN apk add --no-cache curl
 RUN apk add --no-cache dos2unix
