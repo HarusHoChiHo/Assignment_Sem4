@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0e064b4c_002Dbda1_002D421c_002Db700_002D51fa255c22cb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;Assign3_TestProject_ChiHo&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/haruskorban/CentennialAssignment/Semester4/COMP311/Assignment3/Assign3_ChiHoHo/Assign3_TestProject_ChiHo" Presentation="&amp;lt;Assign3_TestProject_ChiHo&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f309d1e4_002D9348_002D407c_002Dbc22_002D5dc7af704b01/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Assign3_TestProject_ChiHo&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/haruskorban/CentennialAssignment/Semester4/COMP311/Assignment3/Assign3_ChiHoHo/Assign3_TestProject_ChiHo" Presentation="&amp;lt;Assign3_TestProject_ChiHo&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
