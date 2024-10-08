@@ -1,0 +1,7 @@
+Commands to convert model to tflite using command line
+
+tflite_convert --saved_model_dir=./keras_model.mdl --output_file ./mobilenet.tflite
+
+Command to compare the two models
+
+fc /b mobilenet.tflite model.tflite
