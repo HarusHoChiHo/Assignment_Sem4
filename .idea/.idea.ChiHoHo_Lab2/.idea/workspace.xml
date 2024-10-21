@@ -8,30 +8,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8a7b2e1-003f-4fd4-9079-9b466379fe02" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/App.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/ChiHoHo_Lab2.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Form1.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Form1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Properties/Resources.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Properties/Resources.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Properties/Settings.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/Properties/Settings.settings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/SendViaEmail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/SendViaMobile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ChiHoHo_Lab2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChiHoHo_Lab2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChiHoHo_Lab2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ChiHoHo_Lab2.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChiHoHo_Lab2/ChiHoHo_Lab2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/ChiHoHo_Lab2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChiHoHo_Lab2/MainWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/MainWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChiHoHo_Lab2/ManageSubscription.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/ManageSubscription.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChiHoHo_Lab2/ManageSubscription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/ManageSubscription.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChiHoHo_Lab2/PublishNotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChiHoHo_Lab2/PublishNotification.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb93580b829e4f7d9c8d742286f27f7d5b8648/d2/3d5860e9/Form.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc4775c0ef484419a5c5e4041814e6dd5317b8/a4/20bf8956/List`1.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2natCw55jlvfUCqj8OEaxFnY5DU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -41,8 +45,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Project.ChiHoHo_Lab2.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "COMP212__Assignment2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729222891805</updated>
       <workItem from="1729222893111" duration="4923000" />
+      <workItem from="1729370669295" duration="20839000" />
     </task>
     <servers />
   </component>

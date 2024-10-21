@@ -66,6 +66,8 @@
         <Compile Include="PublishNotification.Designer.cs">
           <DependentUpon>PublishNotification.cs</DependentUpon>
         </Compile>
+        <Compile Include="SendViaEmail.cs" />
+        <Compile Include="SendViaMobile.cs" />
         <EmbeddedResource Include="MainWindow.resx">
           <DependentUpon>MainWindow.cs</DependentUpon>
         </EmbeddedResource>

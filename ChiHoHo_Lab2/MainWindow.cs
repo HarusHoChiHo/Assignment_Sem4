@@ -6,8 +6,8 @@ namespace ChiHoHo_Lab2
 {
     public partial class MainWindow : Form
     {
-        public static List<String> SendViaEmail = new List<String>();
-        public static List<String> SendViaMobile = new List<String>();
+        public static List<SendViaEmail>  SendViaEmailList  = new List<SendViaEmail>();
+        public static List<SendViaMobile> SendViaMobileList = new List<SendViaMobile>();
         
         public MainWindow()
         {
@@ -19,7 +19,7 @@ namespace ChiHoHo_Lab2
         {
             Form manageSubscriptionForm = new ManageSubscription();
             manageSubscriptionForm.ShowDialog(this);
-            if (SendViaEmail.Count > 0 || SendViaMobile.Count > 0)
+            if (SendViaEmailList.Count > 0 || SendViaMobileList.Count > 0)
             {
                 publishNotification.Enabled = true;
             }

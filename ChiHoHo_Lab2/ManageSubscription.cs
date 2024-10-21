@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -18,12 +19,23 @@ namespace ChiHoHo_Lab2
             {
                 if (byEmail.Checked)
                 {
-                    MainWindow.SendViaEmail.Add(emailAddress.Text);
+                    MainWindow.SendViaEmailList.Add(
+                                                    new SendViaEmail()
+                                                    {
+                                                        Email = emailAddress.Text
+                                                    });
+                    invalidEmail.Hide();
                 }
                 else if (byMobile.Checked)
                 {
-                    MainWindow.SendViaMobile.Add(phoneNumber.Text);
+                    MainWindow.SendViaMobileList.Add(
+                                                     new SendViaMobile()
+                                                     {
+                                                         MobileNumber = phoneNumber.Text
+                                                     });
+                    invalidPhone.Hide();
                 }
+
                 MessageBox.Show("Subscribed successfully");
             }
             else
@@ -39,12 +51,15 @@ namespace ChiHoHo_Lab2
             {
                 if (byEmail.Checked)
                 {
-                    MainWindow.SendViaEmail.Remove(emailAddress.Text);
+                    MainWindow.SendViaEmailList.RemoveAll(email => email.Email.Equals(emailAddress.Text));
+                    invalidEmail.Hide();
                 }
                 else if (byMobile.Checked)
                 {
-                    MainWindow.SendViaMobile.Remove(phoneNumber.Text);
+                    MainWindow.SendViaMobileList.RemoveAll(mobile => mobile.MobileNumber.Equals(phoneNumber.Text));
+                    invalidPhone.Hide();
                 }
+
                 MessageBox.Show("Unsubscribed successfully");
             }
             else
@@ -66,30 +81,37 @@ namespace ChiHoHo_Lab2
             {
                 invalidPhone.Hide();
                 phoneNumber.Enabled = false;
-                byMobile.Checked = false;
+                byMobile.Checked    = false;
 
                 emailAddress.Enabled = true;
             }
+            else if (!byMobile.Checked && !byEmail.Checked)
+            {
+                byMobile.Checked = true;
+            }
         }
-        
+
         private void ByMobile_Checked(object    sender,
-                                               EventArgs e)
+                                      EventArgs e)
         {
             if (byMobile.Checked)
             {
                 invalidEmail.Hide();
                 emailAddress.Enabled = false;
-                byEmail.Checked = false;
-                
+                byEmail.Checked      = false;
+
                 phoneNumber.Enabled = true;
+            } else if (!byMobile.Checked && !byEmail.Checked)
+            {
+                byEmail.Checked = true;
             }
         }
-        
+
         private bool InputValidation(bool subscribeChecking = true)
         {
-            Regex regexEmail  = new Regex("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9_.-]+.[a-zA-Z0-9_.-]+$");
+            Regex regexEmail  = new Regex("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9_.-]+[.][a-zA-Z0-9_.-]+$");
             Regex regexMobile = new Regex("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
-            
+
             if (!subscribeChecking)
             {
                 if (byEmail.Checked && !regexEmail.IsMatch(emailAddress.Text))
@@ -105,18 +127,26 @@ namespace ChiHoHo_Lab2
             }
             else
             {
-                if (byEmail.Checked && (!regexEmail.IsMatch(emailAddress.Text) || MainWindow.SendViaEmail.Contains(emailAddress.Text)))
+                if (byEmail.Checked && (!regexEmail.IsMatch(emailAddress.Text)
+                                     || MainWindow.SendViaEmailList.Exists(
+                                                                           email =>
+                                                                               email.Email.Equals(emailAddress.Text))))
                 {
                     invalidEmail.Show();
                     return false;
                 }
-                else if (byMobile.Checked && (!regexMobile.IsMatch(phoneNumber.Text) || MainWindow.SendViaMobile.Contains(phoneNumber.Text)))
+                else if (byMobile.Checked && (!regexMobile.IsMatch(phoneNumber.Text)
+                                           || MainWindow.SendViaMobileList.Exists(
+                                                                                  mobile =>
+                                                                                      mobile.MobileNumber.Equals(
+                                                                                                                 phoneNumber
+                                                                                                                     .Text))))
                 {
                     invalidPhone.Show();
                     return false;
                 }
             }
-            
+
             return true;
         }
     }

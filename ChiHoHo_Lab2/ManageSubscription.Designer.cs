@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace ChiHoHo_Lab2
 {
@@ -134,7 +135,7 @@ namespace ChiHoHo_Lab2
             this.subscribe.TabIndex                =  7;
             this.subscribe.Text                    =  "Subscribe";
             this.subscribe.UseVisualStyleBackColor =  true;
-            this.subscribe.Click                   += new System.EventHandler(this.SubscribeBtn_Click);
+            this.subscribe.Click                   += new EventHandler(this.SubscribeBtn_Click);
             // 
             // unscribe
             // 
@@ -148,7 +149,7 @@ namespace ChiHoHo_Lab2
             this.unscribe.TabIndex                =  8;
             this.unscribe.Text                    =  "Unscribe";
             this.unscribe.UseVisualStyleBackColor =  true;
-            this.unscribe.Click                   += new System.EventHandler(this.UnsubscribeBtn_Click);
+            this.unscribe.Click                   += new EventHandler(this.UnsubscribeBtn_Click);
             // 
             // cancel
             // 
@@ -162,7 +163,7 @@ namespace ChiHoHo_Lab2
             this.cancel.TabIndex                =  9;
             this.cancel.Text                    =  "Cancel";
             this.cancel.UseVisualStyleBackColor =  true;
-            this.cancel.Click                   += new System.EventHandler(this.CancelBtn_Click);
+            this.cancel.Click                   += new EventHandler(this.CancelBtn_Click);
             // 
             // ManageSubscription
             // 
