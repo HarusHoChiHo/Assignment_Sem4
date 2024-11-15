@@ -1,0 +1,139 @@
+﻿{
+  "MenuItems": [
+    {
+      "Name": "Soda",
+      "Category": "Beverage",
+      "Price": 1.95
+    },
+    {
+      "Name": "Tea",
+      "Category": "Beverage",
+      "Price": 1.50
+    },
+    {
+      "Name": "Coffee",
+      "Category": "Beverage",
+      "Price": 1.25
+    },
+    {
+      "Name": "Mineral Water",
+      "Category": "Beverage",
+      "Price": 2.95
+    },
+    {
+      "Name": "Juice",
+      "Category": "Beverage",
+      "Price": 2.50
+    },
+    {
+      "Name": "Milk",
+      "Category": "Beverage",
+      "Price": 1.50
+    },
+    {
+      "Name": "Buffalo Wings",
+      "Category": "Appetizer",
+      "Price": 5.95
+    },
+    {
+      "Name": "Buffalo Fingers",
+      "Category": "Appetizer",
+      "Price": 6.95
+    },
+    {
+      "Name": "Potato Skins",
+      "Category": "Appetizer",
+      "Price": 8.95
+    },
+    {
+      "Name": "Nachos",
+      "Category": "Appetizer",
+      "Price": 8.95
+    },
+    {
+      "Name": "Mushroom Caps",
+      "Category": "Appetizer",
+      "Price": 10.95
+    },
+    {
+      "Name": "Shrimp Cocktail",
+      "Category": "Appetizer",
+      "Price": 12.95
+    },
+    {
+      "Name": "Chips and Salsa",
+      "Category": "Appetizer",
+      "Price": 6.95
+    },
+    {
+      "Name": "Seafood Alfredo",
+      "Category": "Main Course",
+      "Price": 15.95
+    },
+    {
+      "Name": "Chicken Alfredo",
+      "Category": "Main Course",
+      "Price": 13.95
+    },
+    {
+      "Name": "Chicken Picatta",
+      "Category": "Main Course",
+      "Price": 13.95
+    },
+    {
+      "Name": "Turkey Club",
+      "Category": "Main Course",
+      "Price": 11.95
+    },
+    {
+      "Name": "Lobster Pie",
+      "Category": "Main Course",
+      "Price": 19.95
+    },
+    {
+      "Name": "Prime Rib",
+      "Category": "Main Course",
+      "Price": 20.95
+    },
+    {
+      "Name": "Shrimp Scampi",
+      "Category": "Main Course",
+      "Price": 18.95
+    },
+    {
+      "Name": "Turkey Dinner",
+      "Category": "Main Course",
+      "Price": 13.95
+    },
+    {
+      "Name": "Stuffed Chicken",
+      "Category": "Main Course",
+      "Price": 14.95
+    },
+    {
+      "Name": "Apple Pie",
+      "Category": "Dessert",
+      "Price": 5.95
+    },
+    {
+      "Name": "Sundae",
+      "Category": "Dessert",
+      "Price": 3.95
+    },
+    {
+      "Name": "Carrot Cake",
+      "Category": "Dessert",
+      "Price": 5.95
+    },
+    {
+      "Name": "Mud Pie",
+      "Category": "Dessert",
+      "Price": 4.95
+    },
+    {
+      "Name": "Apple Crisp",
+      "Category": "Dessert",
+      "Price": 5.95
+    }
+  ]
+}

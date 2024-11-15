@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3_ChiHoHo_Q1", "Assignment3_ChiHoHo_Q1\Assignment3_ChiHoHo_Q1.csproj", "{8899BB70-E58C-497C-A20B-9C64CF961BD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3_ChiHoHo_Q2", "Assignment3_ChiHoHo_Q2\Assignment3_ChiHoHo_Q2.csproj", "{240C479B-301C-4197-B3E9-697225336B12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8899BB70-E58C-497C-A20B-9C64CF961BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8899BB70-E58C-497C-A20B-9C64CF961BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8899BB70-E58C-497C-A20B-9C64CF961BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8899BB70-E58C-497C-A20B-9C64CF961BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240C479B-301C-4197-B3E9-697225336B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240C479B-301C-4197-B3E9-697225336B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240C479B-301C-4197-B3E9-697225336B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240C479B-301C-4197-B3E9-697225336B12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
