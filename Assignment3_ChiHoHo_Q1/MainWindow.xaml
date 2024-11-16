@@ -21,25 +21,26 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Name="Beverage" TextAlignment="Center"
-                 Text="Beverage" />
+                 Text="Beverage" IsReadOnly="True"/>
         <TextBox Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Name="Appetizer" TextAlignment="Center"
-                 Text="Appetizer" />
+                 Text="Appetizer" IsReadOnly="True" />
         <TextBox Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Name="MainCourse" TextAlignment="Center"
-                 Text="MainCourse" />
-        <TextBox Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Name="Dessert" TextAlignment="Center" Text="Dessert" />
+                 Text="MainCourse" IsReadOnly="True" />
+        <TextBox Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Name="Dessert" TextAlignment="Center" Text="Dessert"
+                 IsReadOnly="True" />
 
         <ComboBox Grid.Column="0" Grid.Row="1" Name="BeverageComboBox" ItemsSource="{Binding BeverageItems}"
                   DisplayMemberPath="Name" SelectedValuePath="Name" />
-        <TextBox Grid.Column="1" Grid.Row="1" Name="BeverageQuantity" Width="50" Text="1" IsReadOnly="True" />
+        <TextBox Grid.Column="1" Grid.Row="1" Name="BeverageQuantity" Width="50" Text="1" IsEnabled="False" />
         <ComboBox Grid.Column="2" Grid.Row="1" Name="AppetizerComboBox" ItemsSource="{Binding AppetizerItems}"
                   DisplayMemberPath="Name" SelectedValuePath="Name" />
-        <TextBox Grid.Column="3" Grid.Row="1" Name="AppetizerQuantity" Width="50" Text="1" IsReadOnly="True" />
+        <TextBox Grid.Column="3" Grid.Row="1" Name="AppetizerQuantity" Width="50" Text="1" IsEnabled="False" />
         <ComboBox Grid.Column="4" Grid.Row="1" Name="MainCourseComboBox" ItemsSource="{Binding MainCourseItems}"
                   DisplayMemberPath="Name" SelectedValuePath="Name" />
-        <TextBox Grid.Column="5" Grid.Row="1" Name="MainCourseQuantity" Width="50" Text="1" IsReadOnly="True" />
+        <TextBox Grid.Column="5" Grid.Row="1" Name="MainCourseQuantity" Width="50" Text="1" IsEnabled="False" />
         <ComboBox Grid.Column="6" Grid.Row="1" Name="DessertComboBox" ItemsSource="{Binding DessertItems}"
                   DisplayMemberPath="Name" SelectedValuePath="Name" />
-        <TextBox Grid.Column="7" Grid.Row="1" Name="DessertQuantity" Width="50" Text="1" IsReadOnly="True" />
+        <TextBox Grid.Column="7" Grid.Row="1" Name="DessertQuantity" Width="50" Text="1" IsEnabled="False" />
 
         <DataGrid Grid.ColumnSpan="8" Grid.Row="2" Name="BillDataGrid" AutoGenerateColumns="False"
                   ItemsSource="{Binding BillItems}" CanUserAddRows="False" >
@@ -49,18 +50,24 @@
                 <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat=C}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat=C}" IsReadOnly="True" />
+                <DataGridTemplateColumn Header="Edition">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Remove Item" Name="ClearItemButton" Click="ClearItemButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="3" Orientation="Horizontal">
             <TextBlock Text="Subtotal: " />
-            <TextBox Name="SubtotalTextBox" IsReadOnly="True" Width="50" Margin="5, 0, 5, 0" />
-            <TextBlock Text="Tax: " />
-            <TextBox Name="TaxTextBox" IsReadOnly="True" Width="50" Margin="5, 0, 5, 0" />
+            <TextBox Name="SubtotalTextBox" IsReadOnly="True" MinWidth="50" Margin="5, 0, 5, 0" />
+            <TextBlock Text="Tax(13%): " />
+            <TextBox Name="TaxTextBox" IsReadOnly="True" MinWidth="50" Margin="5, 0, 5, 0" />
             <TextBlock Text="Total: " />
-            <TextBox Name="TotalTextBox" IsReadOnly="True" Width="50" Margin="5, 0, 5, 0" />
+            <TextBox Name="TotalTextBox" IsReadOnly="True" MinWidth="50" Margin="5, 0, 5, 0" />
             <Button Content="Clear Bill" Name="ClearBillButton" Margin="5, 0"/>
-            <Button Content="Clear Item" Name="ClearItemButton" Margin="5, 0" />
             <Button Content="Generate Invoice" Name="GenerateInvoiceButton" Margin="5, 0" />
         </StackPanel>
     </Grid>

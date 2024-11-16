@@ -14,10 +14,10 @@ public class MenuItem : INotifyPropertyChanged
                                                          Quantity = 0
                                                      };
 
-    private int     _quantity;
-    public  string  Name     { get; set; }
-    public  decimal Price    { get; set; }
-    public  string  Category { get; set; }
+    private          int     _quantity;
+    public           string  Name     { get; set; }
+    public           decimal Price    { get; set; }
+    public           string  Category { get; set; }
 
     public int Quantity
     {
@@ -56,6 +56,6 @@ public class MenuItem : INotifyPropertyChanged
 
     public override string ToString()
     {
-        return $"{Name} - {Category}\n    Subtotal: ${Price} * {Quantity}\n                 = ${Total}";
+        return $"{Name} - {Category}\n    Subtotal: {Price:C} * {Quantity}\n                 = {Total:C}";
     }
 }

@@ -28,8 +28,8 @@ public partial class MainWindow : Window
         DessertQuantity.TextChanged    += TextBox_TextChanged;
 
         ClearBillButton.Click += ClearBillButton_Click;
-        ClearItemButton.Click += ClearItemButton_Click;
         GenerateInvoiceButton.Click += GenerateInvoiceButton_Click;
+        
     }
 
     public ObservableCollection<MenuItem> BillItems { get; set; }
@@ -72,15 +72,15 @@ public partial class MainWindow : Window
 
             if (selectedItem.Name.Equals("Select an item"))
             {
-                quantityTextBox.IsReadOnly = true;
+                quantityTextBox.IsEnabled = false;
                 return;
             }
 
-            quantityTextBox.IsReadOnly = false;
+            quantityTextBox.IsEnabled = true;
 
             if (int.TryParse(quantityTextBox.Text, out var quantity))
             {
-                if (quantity == 0)
+                if (quantity != 1)
                 {
                     quantityTextBox.Text = "1";
                 }
@@ -143,6 +143,7 @@ public partial class MainWindow : Window
         if (BillDataGrid.SelectedItem is MenuItem menuItem)
         {
             BillItems.Remove(BillItems.First(item => item.Name == menuItem.Name));
+            UpdateBillTotals();
         }
     }
 
@@ -156,11 +157,12 @@ public partial class MainWindow : Window
             count++;
         }
 
-        invoice.Append($"Total:           ${BillItems.Sum(item => item.Total)}");
+        invoice.Append("     Tax:         +13%" + Environment.NewLine + Environment.NewLine);
+        invoice.Append($"     Total:      {(BillItems.Sum(item => item.Total) * 1.13m).ToString("C")}");
         
         MessageBox.Show(invoice.ToString(), "Invoice");
     }
-
+    
     private TextBox GetAssociatedQuantityTextBox(ComboBox comboBox)
     {
         switch (comboBox.Name)
@@ -236,10 +238,7 @@ public partial class MainWindow : Window
 
     private void ClearBillButton_Click(object sender, RoutedEventArgs e)
     {
-        SubtotalTextBox.Text = "$0.00";
-        TaxTextBox.Text      = "$0.00";
-        TotalTextBox.Text    = "$0.00";
-
+        
         BeverageComboBox.SelectedIndex   = 0;
         AppetizerComboBox.SelectedIndex  = 0;
         MainCourseComboBox.SelectedIndex = 0;
@@ -250,6 +249,10 @@ public partial class MainWindow : Window
         MainCourseQuantity.Text = "1";
         DessertQuantity.Text    = "1";
         BillItems.Clear();
+        UpdateBillTotals();
+        // SubtotalTextBox.Text = "$0.00";
+        // TaxTextBox.Text      = "$0.00";
+        // TotalTextBox.Text    = "$0.00";
     }
 
     private List<MenuItem> LoadCSV()
