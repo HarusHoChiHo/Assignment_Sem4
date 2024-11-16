@@ -16,17 +16,10 @@ namespace Assignment3_ChiHoHo_Q2;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private string username = "chihoho";
-    private string password = "chihoho1234";
-    
     public MainWindow()
     {
+        DataContext = this;
         InitializeComponent();
-        
-        Username.DataContext = this;
-        Password.DataContext = this;
-
-        Username.Text = username;
-        Password.Text = password;
     }
+    
 }
