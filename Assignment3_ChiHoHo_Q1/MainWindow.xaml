@@ -42,7 +42,7 @@
         <TextBox Grid.Column="7" Grid.Row="1" Name="DessertQuantity" Width="50" Text="1" IsReadOnly="True" />
 
         <DataGrid Grid.ColumnSpan="8" Grid.Row="2" Name="BillDataGrid" AutoGenerateColumns="False"
-                  ItemsSource="{Binding BillItems}" CanUserAddRows="False">
+                  ItemsSource="{Binding BillItems}" CanUserAddRows="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Category" Binding="{Binding Category}" IsReadOnly="True" />
@@ -61,6 +61,7 @@
             <TextBox Name="TotalTextBox" IsReadOnly="True" Width="50" Margin="5, 0, 5, 0" />
             <Button Content="Clear Bill" Name="ClearBillButton" Margin="5, 0"/>
             <Button Content="Clear Item" Name="ClearItemButton" Margin="5, 0" />
+            <Button Content="Generate Invoice" Name="GenerateInvoiceButton" Margin="5, 0" />
         </StackPanel>
     </Grid>
 </Window>

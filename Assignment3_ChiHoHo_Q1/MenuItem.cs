@@ -53,4 +53,9 @@ public class MenuItem : INotifyPropertyChanged
         OnPropertyChanged(propertyName);
         return true;
     }
+
+    public override string ToString()
+    {
+        return $"{Name} - {Category}\n    Subtotal: ${Price} * {Quantity}\n                 = ${Total}";
+    }
 }

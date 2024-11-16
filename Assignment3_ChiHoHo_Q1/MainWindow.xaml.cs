@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -27,6 +28,8 @@ public partial class MainWindow : Window
         DessertQuantity.TextChanged    += TextBox_TextChanged;
 
         ClearBillButton.Click += ClearBillButton_Click;
+        ClearItemButton.Click += ClearItemButton_Click;
+        GenerateInvoiceButton.Click += GenerateInvoiceButton_Click;
     }
 
     public ObservableCollection<MenuItem> BillItems { get; set; }
@@ -45,7 +48,7 @@ public partial class MainWindow : Window
                                                                                .Prepend(MenuItem.EmptySelection));
         MainCourseComboBox.ItemsSource = new ObservableCollection<MenuItem>(
                                                                             menuItems
-                                                                                .Where(i => i.Category == "Main Course")
+                                                                                .Where(i => i.Category == "MainCourse")
                                                                                 .Prepend(MenuItem.EmptySelection));
         DessertComboBox.ItemsSource = new ObservableCollection<MenuItem>(
                                                                          menuItems
@@ -135,6 +138,29 @@ public partial class MainWindow : Window
         }
     }
 
+    private void ClearItemButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (BillDataGrid.SelectedItem is MenuItem menuItem)
+        {
+            BillItems.Remove(BillItems.First(item => item.Name == menuItem.Name));
+        }
+    }
+
+    private void GenerateInvoiceButton_Click(object sender, RoutedEventArgs e)
+    {
+        StringBuilder invoice = new StringBuilder();
+        int           count   = 1;
+        foreach (MenuItem item in BillItems)
+        {
+            invoice.Append($"{count.ToString()}. " + item.ToString() + Environment.NewLine + Environment.NewLine);
+            count++;
+        }
+
+        invoice.Append($"Total:           ${BillItems.Sum(item => item.Total)}");
+        
+        MessageBox.Show(invoice.ToString(), "Invoice");
+    }
+
     private TextBox GetAssociatedQuantityTextBox(ComboBox comboBox)
     {
         switch (comboBox.Name)
@@ -210,20 +236,20 @@ public partial class MainWindow : Window
 
     private void ClearBillButton_Click(object sender, RoutedEventArgs e)
     {
-        BillItems.Clear();
         SubtotalTextBox.Text = "$0.00";
         TaxTextBox.Text      = "$0.00";
         TotalTextBox.Text    = "$0.00";
-
-        BeverageQuantity.Text   = "1";
-        AppetizerQuantity.Text  = "1";
-        MainCourseQuantity.Text = "1";
-        DessertQuantity.Text    = "1";
 
         BeverageComboBox.SelectedIndex   = 0;
         AppetizerComboBox.SelectedIndex  = 0;
         MainCourseComboBox.SelectedIndex = 0;
         DessertComboBox.SelectedIndex    = 0;
+        
+        BeverageQuantity.Text   = "1";
+        AppetizerQuantity.Text  = "1";
+        MainCourseQuantity.Text = "1";
+        DessertQuantity.Text    = "1";
+        BillItems.Clear();
     }
 
     private List<MenuItem> LoadCSV()
