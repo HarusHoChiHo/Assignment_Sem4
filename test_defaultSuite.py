@@ -31,7 +31,7 @@ class TestDefaultSuite():
     self.driver.find_element(By.ID, "searchTextBox").click()
     self.driver.find_element(By.ID, "searchTextBox").send_keys("3408")
     self.driver.find_element(By.ID, "searchTextBox").send_keys(Keys.ENTER)
-    WebDriverWait(self.driver, 30).until(expected_conditions.visibility_of_element_located((By.LINK_TEXT, "Software Engineering Technician - Centennial College")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.visibility_of_element_located((By.XPATH, "//a[contains(text(),\'Software Engineering Technician - Centennial College\')]")))
     self.vars["window_handles"] = self.driver.window_handles
     self.driver.find_element(By.LINK_TEXT, "Software Engineering Technician - Centennial College").click()
     self.vars["win2502"] = self.wait_for_window(2000)
