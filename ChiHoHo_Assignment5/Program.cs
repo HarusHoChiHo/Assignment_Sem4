@@ -3,7 +3,7 @@ using Microsoft.ML;
 
 namespace ChiHoHo_Assignment5;
 
-class Program
+class  Program
 {
     static void Main(string[] args)
     {
