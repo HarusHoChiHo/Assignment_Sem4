@@ -11,5 +11,10 @@ public partial class Author
 
     public string LastName { get; set; } = null!;
 
-    public virtual ICollection<Titles> Isbns { get; set; } = new List<Titles>();
+    public virtual ICollection<AuthorISBN> AuthorISBNs { get; set; } = new List<AuthorISBN>();
+
+    public override string ToString()
+    {
+        return $"{AuthorId} - {LastName} {FirstName}";
+    }
 }

@@ -19,9 +19,10 @@ public partial class BooksDbContext : DbContext
 
     public virtual DbSet<Titles> Titles { get; set; }
 
+    public virtual DbSet<AuthorISBN> AuthorISBN { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\harusho\\Centennial\\COMP212\\Assignment4\\Assignment4_301324743_ChiHoHo\\Q2Lab4\\Database\\Books.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
+        => optionsBuilder.UseSqlServer($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\..\Database\Books.mdf"))};Integrated Security=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -34,29 +35,17 @@ public partial class BooksDbContext : DbContext
             entity.Property(e => e.LastName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-
-            entity.HasMany(d => d.Isbns).WithMany(p => p.Authors)
-                .UsingEntity<Dictionary<string, object>>(
-                    "AuthorIsbn",
-                    r => r.HasOne<Titles>().WithMany()
-                        .HasForeignKey("Isbn")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_AuthorISBN_Titles"),
-                    l => l.HasOne<Author>().WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_AuthorISBN_Authors"),
-                    j =>
-                    {
-                        j.HasKey("AuthorId", "Isbn");
-                        j.ToTable("AuthorISBN");
-                        j.IndexerProperty<int>("AuthorId").HasColumnName("AuthorID");
-                        j.IndexerProperty<string>("Isbn")
-                            .HasMaxLength(20)
-                            .IsUnicode(false)
-                            .HasColumnName("ISBN");
-                    });
         });
+
+        modelBuilder.Entity<AuthorISBN>(entity => 
+        {
+            entity.HasKey(e => new { e.AuthorId, e.Isbn});
+            entity.Property(e => e.Isbn).HasMaxLength(20).IsUnicode(false).HasColumnName("ISBN").IsRequired();
+            entity.Property(e => e.AuthorId).HasColumnName("AuthorID").IsRequired();
+        });
+
+        modelBuilder.Entity<AuthorISBN>().HasOne<Author>(e => e.Author).WithMany(e => e.AuthorISBNs).HasForeignKey(e => e.AuthorId).HasPrincipalKey(e => e.AuthorId);
+        modelBuilder.Entity<AuthorISBN>().HasOne<Titles>(e => e.Titles).WithMany(e => e.AuthorISBNs).HasForeignKey(e => e.Isbn).HasPrincipalKey(e => e.Isbn);
 
         modelBuilder.Entity<Titles>(entity =>
         {

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Q2Lab4.Models;
 
 BooksDbContext booksDbContext = new BooksDbContext();
+booksDbContext.Titles.Load();
+booksDbContext.Authors.Load();
+booksDbContext.AuthorISBN.Load();
 
 Console.WriteLine("Question 02 - Lab 04");
 
@@ -16,19 +19,21 @@ Question2_3();
 void Question2_1()
 {
 	Console.WriteLine("Question 2.1");
-	var titles = booksDbContext.Titles
-	.Include(t => t.Authors)
-	.OrderBy(t => t.Title)
-	.Select(t => new
-	{
-		Title = t.Title,
-		Authors = t.Authors.Select(a => $"{a.FirstName} {a.LastName}")
-	})
-	.ToList();
+
+	var titles = from title in booksDbContext.Titles
+				 join author_i in booksDbContext.AuthorISBN on title.Isbn equals author_i.Isbn
+				 join author in booksDbContext.Authors on author_i.AuthorId equals author.AuthorId
+				 orderby title.Title
+				 select new
+				 {
+					 Title = title.ToString(),
+					 Author = author.ToString()
+
+                 };
 
 	foreach (var t in titles)
 	{
-		Console.WriteLine($"Title: {t.Title}\nAuthor:{string.Join(", ",t.Authors)}\n");
+		Console.WriteLine($"Titles: {t.Title}\nAuthors:{t.Author}\n");
 	}
 }
 
@@ -36,22 +41,20 @@ void Question2_1()
 void Question2_2()
 {
 	Console.WriteLine("Question 2.2");
-	var titles = booksDbContext.Titles
-	.Include(t => t.Authors)
-	.OrderBy(t => t.Title)
-	.Select(t => new
-	{
-		Title = t.Title,
-		Authors = t.Authors
-			.OrderBy(a => a.LastName)
-			.ThenBy(a => a.FirstName)
-			.Select(a => $"{a.FirstName} {a.LastName}")
-	})
-	.ToList();
+
+	var titles = from title in booksDbContext.Titles
+                 join author_i in booksDbContext.AuthorISBN on title.Isbn equals author_i.Isbn
+                 join author in booksDbContext.Authors on author_i.AuthorId equals author.AuthorId
+                 orderby title.Title, author.LastName, author.FirstName
+				 select new
+				 {
+					 Title = title.ToString(),
+					 Author = author.ToString()
+				 };
 
     foreach (var t in titles)
     {
-		Console.WriteLine($"Title: {t.Title}\nAuthor:{string.Join(", ", t.Authors)}\n");
+		Console.WriteLine($"Titles: {t.Title}\nAuthors:{t.Author}\n");
 	}
 }
 
@@ -59,21 +62,22 @@ void Question2_2()
 void Question2_3()
 {
 	Console.WriteLine("Question 2.3");
-	var titles = booksDbContext.Titles
-	.Include(t => t.Authors)
-	.OrderBy(t => t.Title)
-	.Select(t => new
-	{
-		Title = t.Title,
-		Authors = t.Authors
-			.OrderBy(a => a.LastName)
-			.ThenBy(a => a.FirstName)
-			.Select(a => $"{a.FirstName} {a.LastName}")
-	})
-	.ToList();
+
+	var titles =  from title in booksDbContext.Titles
+                 join author_i in booksDbContext.AuthorISBN on title.Isbn equals author_i.Isbn
+                 join author in booksDbContext.Authors on author_i.AuthorId equals author.AuthorId
+				 orderby title.Title, author.LastName, author.FirstName
+				 group author by title.Title into author_group
+				 select new
+				 {
+					 Title = author_group.Key,
+					 Authors = (from a in author_group.ToList()
+							   orderby a.LastName, a.FirstName
+							   select a).ToList()
+				 };
 
 	foreach (var t in titles)
 	{
-		Console.WriteLine($"Title: {t.Title}\nAuthor:{string.Join(", ", t.Authors)}\n");
+		Console.WriteLine($"Titles: {t.Title}\nAuthors:{string.Join(", ", t.Authors)}\n");
 	}
 }

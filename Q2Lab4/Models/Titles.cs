@@ -13,5 +13,10 @@ public partial class Titles
 
     public string Copyright { get; set; } = null!;
 
-    public virtual ICollection<Author> Authors { get; set; } = new List<Author>();
+    public virtual ICollection<AuthorISBN> AuthorISBNs { get; set; } = new List<AuthorISBN>();
+
+    public override string ToString()
+    {
+        return $"{Isbn} - {Title} (Edition: {EditionNumber}, Copyright: {Copyright})";
+    }
 }
