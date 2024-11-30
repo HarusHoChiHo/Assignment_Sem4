@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiHoHo_Assignment5_Q3", "ChiHoHo_Assignment5\ChiHoHo_Assignment5_Q3.csproj", "{03F3AA96-B50F-4581-AC4A-A90BD1B04844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLModel_ChiHoHo_Assignment5", "MLModel_ChiHoHo_Assignment5\MLModel_ChiHoHo_Assignment5.csproj", "{A0B97E6D-5F3D-40C3-9F7B-5638952A6F65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiHoHo_Assignment5_Q2", "MLModel_ChiHoHo_Assignment5\ChiHoHo_Assignment5_Q2.csproj", "{A0B97E6D-5F3D-40C3-9F7B-5638952A6F65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

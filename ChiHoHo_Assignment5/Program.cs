@@ -14,22 +14,25 @@ class  Program
         IDataView dataView = mlContext.Data.LoadFromTextFile<Student>(_dataPath, hasHeader: true, separatorChar: ',');
 
         string featureColumnName = "Features";
+
         var pipeline = mlContext.Transforms
             .Concatenate(featureColumnName, "STG", "SCG", "STR", "LPR", "PEG")
             .Append(mlContext.Clustering.Trainers.KMeans(featureColumnName, numberOfClusters: 4));
 
         var model = pipeline.Fit(dataView);
 
-        using(var fileStream = new FileStream(_modelPath, FileMode.Create, FileAccess.Write, FileShare.Write))
+        using (var fileStream = new FileStream(_modelPath, FileMode.Create, FileAccess.Write, FileShare.Write))
         {
             mlContext.Model.Save(model, dataView.Schema, fileStream);
         }
-
         var predictor = mlContext.Model.CreatePredictionEngine<Student, CluesterPrediction>(model);
 
-        var prediction = predictor.Predict(TestStudentData.student);
+        foreach (var item in TestStudentData.student)
+        {
+            var prediction = predictor.Predict(item);
 
-        Console.WriteLine($"Cluster: {prediction.PredictedClusterId}");
-        Console.WriteLine($"Distances: {string.Join(" ", prediction.Distances ?? Array.Empty<float>())}");
+            Console.WriteLine($"Cluster: {prediction.PredictedClusterId}");
+            Console.WriteLine($"Distances: {string.Join(" ", prediction.Distances ?? Array.Empty<float>())}");
+        }
     }
 }

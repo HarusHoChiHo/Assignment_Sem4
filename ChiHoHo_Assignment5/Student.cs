@@ -18,9 +18,6 @@ namespace ChiHoHo_Assignment5_Q3
 
         [LoadColumn(4)]
         public float PEG;
-
-        //[LoadColumn(5)]
-        //public String UNS;
     }
 
     public class CluesterPrediction
@@ -29,6 +26,6 @@ namespace ChiHoHo_Assignment5_Q3
         public uint PredictedClusterId;
 
         [ColumnName("Score")]
-        public float[]? Distances;
+        public float[]? Distances { get; set; }
     }
 }
