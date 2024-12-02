@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiHoHo_Assignment5_Q3", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiHoHo_Assignment5_Q2", "MLModel_ChiHoHo_Assignment5\ChiHoHo_Assignment5_Q2.csproj", "{A0B97E6D-5F3D-40C3-9F7B-5638952A6F65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiHoHo_Assignment5_Q1.5", "ChiHoHo_Assignment5_Q1.5\ChiHoHo_Assignment5_Q1.5.csproj", "{B018A0FF-D45A-4DF6-A50F-69A46873F2C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A0B97E6D-5F3D-40C3-9F7B-5638952A6F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0B97E6D-5F3D-40C3-9F7B-5638952A6F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0B97E6D-5F3D-40C3-9F7B-5638952A6F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B018A0FF-D45A-4DF6-A50F-69A46873F2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B018A0FF-D45A-4DF6-A50F-69A46873F2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B018A0FF-D45A-4DF6-A50F-69A46873F2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B018A0FF-D45A-4DF6-A50F-69A46873F2C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

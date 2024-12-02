@@ -25,6 +25,7 @@ class  Program
         {
             mlContext.Model.Save(model, dataView.Schema, fileStream);
         }
+
         var predictor = mlContext.Model.CreatePredictionEngine<Student, CluesterPrediction>(model);
 
         foreach (var item in TestStudentData.student)

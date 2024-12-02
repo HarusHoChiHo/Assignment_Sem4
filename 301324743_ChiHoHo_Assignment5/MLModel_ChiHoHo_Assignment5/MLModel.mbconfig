@@ -1,0 +1,380 @@
+﻿{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\harusho\\Centennial\\COMP212\\Assignment5\\MLModel_ChiHoHo_Assignment5\\insurance.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "age",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "sex",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "bmi",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "children",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "smoker",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Boolean",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "region",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "charges",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.861097449275591,
+        "RuntimeInSeconds": 0.68,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ],
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ],
+            "InputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region",
+              "age",
+              "bmi",
+              "children"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 235,
+            "NumberOfLeaves": 10,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "charges",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.86100027601591123,
+        "RuntimeInSeconds": 7.335,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ],
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ],
+            "InputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region",
+              "age",
+              "bmi",
+              "children"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4086,
+            "NumberOfLeaves": 8,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "charges",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.8607516649885415,
+        "RuntimeInSeconds": 0.383,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ],
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ],
+            "InputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region",
+              "age",
+              "bmi",
+              "children"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 98,
+            "NumberOfLeaves": 32,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "charges",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.86063122977623363,
+        "RuntimeInSeconds": 0.314,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ],
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ],
+            "InputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region",
+              "age",
+              "bmi",
+              "children"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 54,
+            "NumberOfLeaves": 18,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "charges",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.859873491355488,
+        "RuntimeInSeconds": 0.256,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ],
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ],
+            "InputColumnNames": [
+              "age",
+              "bmi",
+              "children"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "sex",
+              "smoker",
+              "region",
+              "age",
+              "bmi",
+              "children"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 31,
+            "NumberOfLeaves": 25,
+            "FeatureFraction": 0.92851925,
+            "LabelColumnName": "charges",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "FastTreeRegression",
+      "e4": "FastForestRegression",
+      "e5": "LightGbmRegression",
+      "e6": "LbfgsPoissonRegressionRegression",
+      "e7": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7)",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\harusho\\Centennial\\COMP212\\Assignment5\\MLModel_ChiHoHo_Assignment5\\MLModel.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Tuner": "eci-cfo",
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 100,
+    "OptimizeMetric": "RSquared",
+    "LabelColumn": "charges",
+    "AvailableTrainers": [
+      "SDCA",
+      "LBFGS",
+      "LGBM",
+      "FASTTREE",
+      "FASTFOREST"
+    ],
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
