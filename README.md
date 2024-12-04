@@ -18,7 +18,6 @@ Before you begin, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/yourusername/yourproject.git
-   cd yourproject
    ```
 
    Run this command in the command prompt:
