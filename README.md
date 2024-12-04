@@ -12,7 +12,7 @@ Before you begin, ensure you have the following installed:
 
 ## Installation
 
-1. **Clone the Repository**
+1. **Steps to set up**
 
    Clone the project repository to your local machine:
 
