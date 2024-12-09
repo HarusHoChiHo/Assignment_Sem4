@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79243cf4-d8aa-4c20-8978-b24b53d89b65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/nltk.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="79243cf4-d8aa-4c20-8978-b24b53d89b65" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733712850113</updated>
-      <workItem from="1733712851265" duration="3018000" />
+      <workItem from="1733712851265" duration="3458000" />
     </task>
     <servers />
   </component>
