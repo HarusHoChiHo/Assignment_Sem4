@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sentiment import utils
+from SentimentWeb import utils
 
 
 def index(request):

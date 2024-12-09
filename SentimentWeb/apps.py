@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 class SentimentConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "sentiment"
+    name = "SentimentWeb"
     _initialized = False
 
     def ready(self):
@@ -12,5 +12,5 @@ class SentimentConfig(AppConfig):
 
     def run_initialization(self):
         print("Running initialization")
-        from sentiment.utils.sentiment_processing import train_model
+        from SentimentWeb.utils.sentiment_processing import train_model
         train_model()

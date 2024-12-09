@@ -1,4 +1,3 @@
-from nltk import sentiment
 from nltk.classify import NaiveBayesClassifier
 from nltk.corpus import subjectivity
 from nltk.sentiment import SentimentAnalyzer, SentimentIntensityAnalyzer

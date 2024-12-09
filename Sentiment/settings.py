@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-vr$2+0odhcs_xe8m54_pdvb$m0mextq$==b1)2r3dn!ztay&rh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "comp318-58e714acd3bb.herokuapp.com"]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "sentiment",
+    "SentimentWeb"
 ]
 
 MIDDLEWARE = [
@@ -50,15 +50,14 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "SentimentWeb.middleware.InitializationMiddleware"
 ]
 
-ROOT_URLCONF = "SentimentWeb.urls"
+ROOT_URLCONF = "Sentiment.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "/sentiment/templates")],
+        "DIRS": [os.path.join(BASE_DIR, "/SentimentWeb/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -71,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "SentimentWeb.wsgi.application"
+WSGI_APPLICATION = "Sentiment.wsgi.application"
 
 
 # Database
@@ -120,8 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
