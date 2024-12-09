@@ -34,8 +34,6 @@ if IS_HEROKU_APP:
 else:
     ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", "0.0.0.0", "[::]"]
 
-ALLOWED_HOSTS = ["localhost", "comp318-58e714acd3bb.herokuapp.com"]
-
 
 # Application definition
 
