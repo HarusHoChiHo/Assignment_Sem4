@@ -1,0 +1,9 @@
+punkt
+stopwords
+wordnet
+averaged_perceptron_tagger
+brown
+movie_reviews
+names
+words
+gutenberg
